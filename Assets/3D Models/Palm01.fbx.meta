@@ -1,33 +1,25 @@
 fileFormatVersion: 2
-guid: c80801107bf4b4604a73cfb72776cb18
+guid: b64455c26b24840efb635e7580625c39
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: Wood
+    2100002: Leafs
     2300000: //RootNode
     3300000: //RootNode
-    4300000: rock.086
+    4300000: Cylinder.002
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: ROCK
-    second: {fileID: 2100000, guid: 7f693bfcbe5a240a3b5e8cde71a507f1, type: 2}
+      name: Leafs
+    second: {fileID: 2100000, guid: d41a59d5f85d64821a290e84dae7bbd1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Rock03
-    second: {fileID: 2100000, guid: 7f693bfcbe5a240a3b5e8cde71a507f1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Rock04
-    second: {fileID: 2100000, guid: a839a08631bfc4c498ff41dba8c687a7, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Sand02
+      name: Wood
     second: {fileID: 2100000, guid: 7b28b3a2b4579467ab793b543e11337e, type: 2}
   materials:
     importMaterials: 1
