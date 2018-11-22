@@ -1,29 +1,33 @@
 fileFormatVersion: 2
-guid: 67e5a415b06244770bab0b1770fb7f7e
+guid: 5bd9e586bd98143aba68a199cffc5791
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: water
+    2100002: white
+    2100004: Moss
     2300000: //RootNode
     3300000: //RootNode
-    4300000: rock.080
+    4300000: Plane.036
+    2186277476908879412: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: ROCK
-    second: {fileID: 2100000, guid: 7f693bfcbe5a240a3b5e8cde71a507f1, type: 2}
+      name: Moss
+    second: {fileID: 2100000, guid: d6d20c57804724b068caec9f9e350527, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Rock04
-    second: {fileID: 2100000, guid: a839a08631bfc4c498ff41dba8c687a7, type: 2}
+      name: water
+    second: {fileID: 2100000, guid: a923326bc9def408fa440adcf344f102, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Sand
-    second: {fileID: 2100000, guid: 435b6409d2eca4b50b9cd8f7187494cd, type: 2}
+      name: white
+    second: {fileID: 2100000, guid: f1bc49c6a02a74b91a05ff2f02e4550f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

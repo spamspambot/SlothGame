@@ -1,29 +1,45 @@
 fileFormatVersion: 2
-guid: 67e5a415b06244770bab0b1770fb7f7e
+guid: dd5deaf4dc87a4e93baf7f33e3bbb2a2
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: //RootNode
     400000: //RootNode
+    2100000: Stone
+    2100002: Sand
+    2100004: Light
+    2100006: Stone02
+    2100008: Stone3
     2300000: //RootNode
     3300000: //RootNode
-    4300000: rock.080
+    4300000: rock.092
+    2186277476908879412: ImportLogs
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: ROCK
-    second: {fileID: 2100000, guid: 7f693bfcbe5a240a3b5e8cde71a507f1, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Rock04
-    second: {fileID: 2100000, guid: a839a08631bfc4c498ff41dba8c687a7, type: 2}
+      name: Light
+    second: {fileID: 2100000, guid: 435b6409d2eca4b50b9cd8f7187494cd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Sand
     second: {fileID: 2100000, guid: 435b6409d2eca4b50b9cd8f7187494cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stone
+    second: {fileID: 2100000, guid: 435b6409d2eca4b50b9cd8f7187494cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stone02
+    second: {fileID: 2100000, guid: a839a08631bfc4c498ff41dba8c687a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stone3
+    second: {fileID: 2100000, guid: a839a08631bfc4c498ff41dba8c687a7, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
