@@ -1,20 +1,24 @@
 fileFormatVersion: 2
-guid: c1e00476a133149dbb976c63f52815b3
+guid: c99ef46a4cf324422bc7424ae0d4845d
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: //RootNode
-    400000: //RootNode
-    2100000: Gold
-    2300000: //RootNode
-    3300000: //RootNode
-    4300000: Cylinder
+  serializedVersion: 24
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Gold
-    second: {fileID: 2100000, guid: 7c4324673ebcc4369b7aec964bb8c71f, type: 2}
+      name: ROCK
+    second: {fileID: 2100000, guid: 7f693bfcbe5a240a3b5e8cde71a507f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Rock04
+    second: {fileID: 2100000, guid: a839a08631bfc4c498ff41dba8c687a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sand
+    second: {fileID: 2100000, guid: 7f693bfcbe5a240a3b5e8cde71a507f1, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -48,6 +52,7 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -55,10 +60,13 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
@@ -72,6 +80,9 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

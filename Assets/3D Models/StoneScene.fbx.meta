@@ -1,32 +1,59 @@
 fileFormatVersion: 2
-guid: 83e339ea5b7834712a3b5a3642faedeb
+guid: b182ed50b6104434dbfafd2528c868c7
 ModelImporter:
   serializedVersion: 24
-  internalIDToNameTable:
-  - first:
-      1: 100000
-    second: //RootNode
-  - first:
-      4: 400000
-    second: //RootNode
-  - first:
-      23: 2300000
-    second: //RootNode
-  - first:
-      33: 3300000
-    second: //RootNode
-  - first:
-      43: 4300000
-    second: rock.124
-  - first:
-      41386430: 2186277476908879412
-    second: ImportLogs
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Material.004
+      name: Black
+    second: {fileID: 2100000, guid: 418a2e46be50c4319aea87d56328c19c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Gold
+    second: {fileID: 2100000, guid: 9cf322a5e0f76450c80a264b0119a134, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Grass
+    second: {fileID: 2100000, guid: 1170a62d229d44bb188dd51712417fbb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Hat
+    second: {fileID: 2100000, guid: c2e858eb2e7ee4788afedd78339f38c3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Light
+    second: {fileID: 2100000, guid: 435b6409d2eca4b50b9cd8f7187494cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.005
+    second: {fileID: 2100000, guid: 30bc662693598440bb22ee8cbfd69e18, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.013
+    second: {fileID: 2100000, guid: 9d360d3c056c94029a5a3bd9ef7fcd6b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.014
+    second: {fileID: 2100000, guid: a90105936b3cb4e99a1bdea8bb9a0217, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.015
     second: {fileID: 2100000, guid: b90aa34c46544418ea6ded119bd0f04c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Moss
+    second: {fileID: 2100000, guid: d6d20c57804724b068caec9f9e350527, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -36,27 +63,62 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Rock02
-    second: {fileID: 2100000, guid: 9d360d3c056c94029a5a3bd9ef7fcd6b, type: 2}
+    second: {fileID: 2100000, guid: 127f57d0e9df34768bc5de7a3800e682, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Rock03
-    second: {fileID: 2100000, guid: 71ef13cb6de344f249d8d6b28cfe5d80, type: 2}
+    second: {fileID: 2100000, guid: 9d360d3c056c94029a5a3bd9ef7fcd6b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Rock04
-    second: {fileID: 2100000, guid: a90105936b3cb4e99a1bdea8bb9a0217, type: 2}
+    second: {fileID: 2100000, guid: 30bc662693598440bb22ee8cbfd69e18, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Rock05
-    second: {fileID: 2100000, guid: 30bc662693598440bb22ee8cbfd69e18, type: 2}
+    second: {fileID: 2100000, guid: 9d360d3c056c94029a5a3bd9ef7fcd6b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sand
+    second: {fileID: 2100000, guid: 435b6409d2eca4b50b9cd8f7187494cd, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Sand02
     second: {fileID: 2100000, guid: 435b6409d2eca4b50b9cd8f7187494cd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stone
+    second: {fileID: 2100000, guid: 7f693bfcbe5a240a3b5e8cde71a507f1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stone02
+    second: {fileID: 2100000, guid: a839a08631bfc4c498ff41dba8c687a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stone03
+    second: {fileID: 2100000, guid: a839a08631bfc4c498ff41dba8c687a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Stone3
+    second: {fileID: 2100000, guid: a839a08631bfc4c498ff41dba8c687a7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: water
+    second: {fileID: 2100000, guid: a923326bc9def408fa440adcf344f102, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: white
+    second: {fileID: 2100000, guid: bf217c89d2abf4252a6d09a3e5e0bdcc, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
