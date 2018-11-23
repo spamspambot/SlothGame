@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RagdollController : MonoBehaviour
 {
+    public int ID;
+    public GameObject sleepObject;
+    public Transform head;
     public bool iGaveUp;
     public bool tryToBend;
     public bool sleeping;
@@ -44,11 +47,29 @@ public class RagdollController : MonoBehaviour
     void Update()
     {
         if (!sleeping)
-        {if (sleepCounter >= sleepThreshold) StartCoroutine("FallAsleep"); 
+        {
+            if (sleepCounter >= sleepThreshold) StartCoroutine("FallAsleep");
             if (iGaveUp)
             {
-                if (Input.GetMouseButton(0)) { leftArm.AddForceAtPosition(transform.up * velocity, leftArm.transform.position); sleepCounter++; }
-                else if (Input.GetMouseButton(1)) { rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position); sleepCounter++; }
+                if (Input.GetMouseButton(0)) { leftArm.AddForceAtPosition(transform.up * velocity, leftArm.transform.position,ForceMode.Force); sleepCounter++; }
+                else if (Input.GetMouseButton(1)) { rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position, ForceMode.Force); sleepCounter++; }
+                if (Input.GetMouseButtonDown(0)) { leftArm.AddForceAtPosition(-transform.forward * velocity/10, leftArm.transform.position,ForceMode.Impulse); sleepCounter++; }
+                else if (Input.GetMouseButtonDown(1)) { rightArm.AddForceAtPosition(-transform.forward * velocity/10, rightArm.transform.position, ForceMode.Impulse); sleepCounter++; }
+                if (ID == 1) {
+
+                    if (Input.GetButton("LEFT_1")) { leftArm.AddForceAtPosition(transform.up * velocity, leftArm.transform.position, ForceMode.Force); sleepCounter++; }
+                    else if (Input.GetButton("RIGHT_1")) { rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position, ForceMode.Force); sleepCounter++; }
+                    if (Input.GetButtonDown("LEFT_1")) { leftArm.AddForceAtPosition(-transform.forward * velocity / 10, leftArm.transform.position, ForceMode.Impulse); sleepCounter++; }
+                    else if (Input.GetButtonDown("RIGHT_1")) { rightArm.AddForceAtPosition(-transform.forward * velocity / 10, rightArm.transform.position, ForceMode.Impulse); sleepCounter++; }
+                }
+               else if (ID == 2)
+                {
+
+                    if (Input.GetButton("LEFT_2")) { leftArm.AddForceAtPosition(transform.up * velocity, leftArm.transform.position, ForceMode.Force); sleepCounter++; }
+                    else if (Input.GetButton("RIGHT_2")) { rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position, ForceMode.Force); sleepCounter++; }
+                    if (Input.GetButtonDown("LEFT_2")) { leftArm.AddForceAtPosition(-transform.forward * velocity / 10, leftArm.transform.position, ForceMode.Impulse); sleepCounter++; }
+                    else if (Input.GetButtonDown("RIGHT_2")) { rightArm.AddForceAtPosition(-transform.forward * velocity / 10, rightArm.transform.position, ForceMode.Impulse); sleepCounter++; }
+                }
             }
             else
             {
@@ -104,7 +125,9 @@ public class RagdollController : MonoBehaviour
             }
         }
     }
-    IEnumerator FallAsleep() {
+    IEnumerator FallAsleep()
+    {
+        Instantiate(sleepObject, head.position, Quaternion.Euler(270,0,0));
         sleepCounter = 0;
         sleeping = true;
         int RNG = 3;

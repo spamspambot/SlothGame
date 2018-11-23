@@ -119,6 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4592531048124554534}
   - component: {fileID: 5850722812418732124}
+  - component: {fileID: 8162393758926243534}
   m_Layer: 0
   m_Name: Sloth_Ragdoll
   m_TagString: Untagged
@@ -160,6 +161,45 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8162393758926243534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 711757303090278197}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_GeneratorAsset: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: de6d82a0752d30b47a2f82e09da2eac2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
+  sleepObject: {fileID: 5432171269412802981, guid: 6a04ed16786185a44be9ca8525470ae9,
+    type: 3}
+  head: {fileID: 3391499565385692659}
+  iGaveUp: 1
+  tryToBend: 0
+  sleeping: 0
+  sleepCounter: 0
+  sleepThreshold: 300
+  leftArm: {fileID: 8845428560291158473}
+  rightArm: {fileID: 8845428560811099976}
+  leftShoulder: {fileID: 2864689602772244684}
+  rightShoulder: {fileID: 4836688919973890635}
+  bendSpeed: 0
+  leftElbow: {fileID: 8845428560291158478}
+  rightElbow: {fileID: 8845428560811099977}
+  shoulderBendL: 0
+  maxShoulderBend: 20
+  shoulderBendXL: 0
+  maxShoulderBendX: 20
+  minShoulderBendX: 0
+  velocity: 175
+  limitChange: 1
+  x: 0
+  y: 0
+  AS: {fileID: 0}
 --- !u!1 &950343631635925703
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,6 +279,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de6d82a0752d30b47a2f82e09da2eac2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ID: 1
+  sleepObject: {fileID: 5432171269412802981, guid: 6a04ed16786185a44be9ca8525470ae9,
+    type: 3}
+  head: {fileID: 3391499565385692659}
   iGaveUp: 1
   tryToBend: 0
   sleeping: 0
@@ -260,6 +304,7 @@ MonoBehaviour:
   limitChange: 1
   x: 0
   y: 0
+  AS: {fileID: 0}
 --- !u!1 &965776018800743415
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,7 +426,7 @@ GameObject:
   - component: {fileID: 8845428560291158473}
   - component: {fileID: 8845428560291158478}
   - component: {fileID: 8845428560291158472}
-  - component: {fileID: 1752462175}
+  - component: {fileID: 6474468531224148749}
   m_Layer: 0
   m_Name: Bone.002_L.002
   m_TagString: Untagged
@@ -438,7 +483,7 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -90
+    limit: 0
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
@@ -479,8 +524,8 @@ CapsuleCollider:
   m_Height: 0.0014766116
   m_Direction: 1
   m_Center: {x: 0, y: 0.0007383058, z: 0}
---- !u!65 &1752462175
-BoxCollider:
+--- !u!136 &6474468531224148749
+CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -488,10 +533,11 @@ BoxCollider:
   m_GameObject: {fileID: 1322110175941042915}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
-  serializedVersion: 2
-  m_Size: {x: 0.00077567203, y: 0.0028118673, z: 0.00046281022}
-  m_Center: {x: 5.0648385e-10, y: 0.001088964, z: -0.0000092237415}
+  m_Enabled: 1
+  m_Radius: 0.00029532184
+  m_Height: 0.0014766091
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.0007383046, z: 0}
 --- !u!1 &1721191957297289468
 GameObject:
   m_ObjectHideFlags: 0
@@ -1087,7 +1133,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3222314481676258217}
-  - component: {fileID: 837806616}
   m_Layer: 0
   m_Name: Bone.002_L.003
   m_TagString: Untagged
@@ -1109,20 +1154,6 @@ Transform:
   m_Father: {fileID: 2108154212494613357}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &837806616
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5478840894678998079}
-  m_Material: {fileID: 13400000, guid: 72e0095dbb442ff41a78515161f68491, type: 2}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.00029532233
-  m_Height: 0.0014766116
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.0007383058, z: 0}
 --- !u!1 &5552509146619781056
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,11 +1425,11 @@ CharacterJoint:
     spring: 0
     damper: 0
   m_LowTwistLimit:
-    limit: -90
+    limit: -70
     bounciness: 0
     contactDistance: 0
   m_HighTwistLimit:
-    limit: 90
+    limit: 10
     bounciness: 0
     contactDistance: 0
   m_SwingLimitSpring:
@@ -1592,14 +1623,14 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2187202483406825298, guid: 2ff7f58d77e343e4bacfdd8e73f0001a, type: 3}
-  - {fileID: -414921334540547795, guid: 2ff7f58d77e343e4bacfdd8e73f0001a, type: 3}
-  - {fileID: 3019647536304392061, guid: 2ff7f58d77e343e4bacfdd8e73f0001a, type: 3}
-  - {fileID: -8848810374240701247, guid: 2ff7f58d77e343e4bacfdd8e73f0001a, type: 3}
-  - {fileID: -1580535799172915004, guid: 2ff7f58d77e343e4bacfdd8e73f0001a, type: 3}
-  - {fileID: 5989244873844300312, guid: 2ff7f58d77e343e4bacfdd8e73f0001a, type: 3}
-  - {fileID: 8627644809163848826, guid: 2ff7f58d77e343e4bacfdd8e73f0001a, type: 3}
-  - {fileID: 6098924145076851180, guid: 2ff7f58d77e343e4bacfdd8e73f0001a, type: 3}
+  - {fileID: 2100000, guid: 53da5277cd5f84dbf94c42b3d6850d70, type: 2}
+  - {fileID: 2100000, guid: 50584751aef7e4ef1a940a34c2599b3c, type: 2}
+  - {fileID: 2100000, guid: 8d2645dc454c044ccbff45837275e887, type: 2}
+  - {fileID: 2100000, guid: bf217c89d2abf4252a6d09a3e5e0bdcc, type: 2}
+  - {fileID: 2100000, guid: 418a2e46be50c4319aea87d56328c19c, type: 2}
+  - {fileID: 2100000, guid: bf23a4e04599a4d158e43fdb99cde9f5, type: 2}
+  - {fileID: 2100000, guid: c2e858eb2e7ee4788afedd78339f38c3, type: 2}
+  - {fileID: 2100000, guid: 766c01145872a4f7997bf0186b575ca4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
