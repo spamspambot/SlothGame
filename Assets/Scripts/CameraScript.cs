@@ -12,17 +12,19 @@ public class CameraScript : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-     //   startPos = cam.transform.position;
+        startPos = cam.transform.position;
+     //   if (targets.Count == 1) camTarget = targets[0].transform.position;
     }
 
 
     // Update is called once per frame
     void Update()
     {
-        if (targets.Count > 1) {
-            camTarget = targets[0].transform.position + (targets[1].transform.position - targets[0].transform.position)/2;
-                }
-
-        cam.transform.position = camTarget + startPos;
+        if (targets.Count > 1)
+        {
+            camTarget = targets[0].transform.position + (targets[1].transform.position - targets[0].transform.position) / 2;
+        }
+        else 
+        cam.transform.position = targets[0].transform.position + startPos;
     }
 }
