@@ -31,14 +31,14 @@ public class RagdollController : MonoBehaviour
         
                 if (Input.GetMouseButton(0))
                 {
-                    leftArm.AddForceAtPosition(transform.forward * velocity, leftArm.transform.position);
+                    leftArm.AddForceAtPosition(leftArm.transform.up * velocity, leftArm.transform.position);
                     leftLimit.limit = Mathf.Clamp(leftLimit.limit - limitChange, -170,170);
                     print(leftLimit.limit);
                     leftLimit2.limit = leftLimit2.limit - limitChange;
                 }
               //  else { leftLimit.limit = leftLimit.limit + limitChange; leftLimit2.limit = leftLimit2.limit + limitChange; }
 
-                if (Input.GetMouseButton(1)) { rightArm.AddForceAtPosition(transform.forward * velocity, rightArm.transform.position); }
+                if (Input.GetMouseButton(1)) { rightArm.AddForceAtPosition(rightArm.transform.up * velocity, rightArm.transform.position); }
                
 
 
