@@ -13,7 +13,7 @@ public class CameraScript : MonoBehaviour
     {
         cam = Camera.main;
         startPos = cam.transform.position;
-     //   if (targets.Count == 1) camTarget = targets[0].transform.position;
+        if (targets.Count == 1) camTarget = targets[0].transform.position;
     }
 
 
@@ -23,8 +23,9 @@ public class CameraScript : MonoBehaviour
         if (targets.Count > 1)
         {
             camTarget = targets[0].transform.position + (targets[1].transform.position - targets[0].transform.position) / 2;
+            cam.transform.position = camTarget + startPos;
         }
         else 
-        cam.transform.position = targets[0].transform.position + startPos;
+        cam.transform.position = targets[0].transform.position + startPos - camTarget;
     }
 }

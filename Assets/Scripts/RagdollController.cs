@@ -31,6 +31,9 @@ public class RagdollController : MonoBehaviour
     public float limitChange = 1;
     public float x;
     public float y;
+    public int armCounter;
+    int leftCounter;
+    int rightCounter;
     Vector3 shoulderR;
     Vector3 shoulderL;
     public AudioSource AS;
@@ -51,22 +54,25 @@ public class RagdollController : MonoBehaviour
             if (sleepCounter >= sleepThreshold) StartCoroutine("FallAsleep");
             if (iGaveUp)
             {
-                if (Input.GetMouseButton(0)) { leftArm.AddForceAtPosition(transform.up * velocity, leftArm.transform.position,ForceMode.Force); sleepCounter++; }
-                else if (Input.GetMouseButton(1)) { rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position, ForceMode.Force); sleepCounter++; }
-                if (Input.GetMouseButtonDown(0)) { leftArm.AddForceAtPosition(-transform.forward * velocity/10, leftArm.transform.position,ForceMode.Impulse); sleepCounter++; }
-                else if (Input.GetMouseButtonDown(1)) { rightArm.AddForceAtPosition(-transform.forward * velocity/10, rightArm.transform.position, ForceMode.Impulse); sleepCounter++; }
-                if (ID == 1) {
-
-                    if (Input.GetButton("LEFT_1")) { leftArm.AddForceAtPosition(transform.up * velocity, leftArm.transform.position, ForceMode.Force); sleepCounter++; }
-                    else if (Input.GetButton("RIGHT_1")) { rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position, ForceMode.Force); sleepCounter++; }
-                    if (Input.GetButtonDown("LEFT_1")) { leftArm.AddForceAtPosition(-transform.forward * velocity / 10, leftArm.transform.position, ForceMode.Impulse); sleepCounter++; }
-                    else if (Input.GetButtonDown("RIGHT_1")) { rightArm.AddForceAtPosition(-transform.forward * velocity / 10, rightArm.transform.position, ForceMode.Impulse); sleepCounter++; }
-                }
-               else if (ID == 2)
+                if (Input.GetMouseButton(0)) { leftArm.AddForceAtPosition(transform.up * velocity, leftArm.transform.position, ForceMode.Force); }
+                else if (Input.GetMouseButton(1)) { rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position, ForceMode.Force); }
+                if (Input.GetMouseButtonDown(0)) { leftArm.AddForceAtPosition(-transform.forward * velocity / 10, leftArm.transform.position, ForceMode.Impulse); sleepCounter++; }
+                else if (Input.GetMouseButtonDown(1)) { rightArm.AddForceAtPosition(-transform.forward * velocity / 10, rightArm.transform.position, ForceMode.Impulse); sleepCounter++; }
+                if (ID == 1)
                 {
 
-                    if (Input.GetButton("LEFT_2")) { leftArm.AddForceAtPosition(transform.up * velocity, leftArm.transform.position, ForceMode.Force); sleepCounter++; }
-                    else if (Input.GetButton("RIGHT_2")) { rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position, ForceMode.Force); sleepCounter++; }
+                    if (Input.GetButton("LEFT_1") && leftCounter < armCounter) { leftArm.AddForceAtPosition(transform.up * velocity, leftArm.transform.position, ForceMode.Force); leftCounter++; }
+                    if (Input.GetButton("RIGHT_1") && rightCounter < armCounter) { rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position, ForceMode.Force); rightCounter++; }
+                    if (Input.GetButtonDown("LEFT_1")) { leftArm.AddForceAtPosition(-transform.forward * velocity / 10, leftArm.transform.position, ForceMode.Impulse); sleepCounter++; }
+                    if (Input.GetButtonDown("RIGHT_1")) { rightArm.AddForceAtPosition(-transform.forward * velocity / 10, rightArm.transform.position, ForceMode.Impulse); sleepCounter++; }
+                    if (Input.GetButtonUp("LEFT_1")) { leftCounter = 0; }
+                    if (Input.GetButtonUp("RIGHT_1")) { rightCounter = 0; }
+                }
+                else if (ID == 2)
+                {
+
+                    if (Input.GetButton("LEFT_2")) { leftArm.AddForceAtPosition(transform.up * velocity, leftArm.transform.position, ForceMode.Force); }
+                    else if (Input.GetButton("RIGHT_2")) { rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position, ForceMode.Force); }
                     if (Input.GetButtonDown("LEFT_2")) { leftArm.AddForceAtPosition(-transform.forward * velocity / 10, leftArm.transform.position, ForceMode.Impulse); sleepCounter++; }
                     else if (Input.GetButtonDown("RIGHT_2")) { rightArm.AddForceAtPosition(-transform.forward * velocity / 10, rightArm.transform.position, ForceMode.Impulse); sleepCounter++; }
                 }
@@ -127,7 +133,7 @@ public class RagdollController : MonoBehaviour
     }
     IEnumerator FallAsleep()
     {
-        Instantiate(sleepObject, head.position, Quaternion.Euler(270,0,0));
+        Instantiate(sleepObject, head.position, Quaternion.Euler(270, 0, 0));
         sleepCounter = 0;
         sleeping = true;
         int RNG = 3;
