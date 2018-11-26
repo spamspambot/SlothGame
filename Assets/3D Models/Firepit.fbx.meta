@@ -8,42 +8,42 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.004
-    second: {fileID: 2100000, guid: fb2925889ca1f44ebb13fd53bb164e29, type: 2}
+    second: {fileID: 2100000, guid: 8d2645dc454c044ccbff45837275e887, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.007
-    second: {fileID: 2100000, guid: 7807d5443821b4eafb4b5cc92b9628d0, type: 2}
+    second: {fileID: 2100000, guid: 8d2645dc454c044ccbff45837275e887, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.008
-    second: {fileID: 2100000, guid: 4098152b786ad46db91342e8c12e608e, type: 2}
+    second: {fileID: 2100000, guid: 8d2645dc454c044ccbff45837275e887, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.014
-    second: {fileID: 2100000, guid: f8e5046cee19b433182674ad1af1cca3, type: 2}
+    second: {fileID: 2100000, guid: c298b75639dbe421dbad0baa6a74bd31, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.025
-    second: {fileID: 2100000, guid: 8bd0f2dec188c4368b23d30683256c7b, type: 2}
+    second: {fileID: 2100000, guid: bf23a4e04599a4d158e43fdb99cde9f5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.026
-    second: {fileID: 2100000, guid: bfb7a7b1079034c169161bdd39310d64, type: 2}
+    second: {fileID: 2100000, guid: 037b5712eb6794b5db968fe7988c530b, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.031
-    second: {fileID: 2100000, guid: 86a84a379d6ce48e083cd10428737f54, type: 2}
+    second: {fileID: 2100000, guid: bf23a4e04599a4d158e43fdb99cde9f5, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Material.037
-    second: {fileID: 2100000, guid: ba7f824d1c5bd498abf1bf87b0b46ad7, type: 2}
+    second: {fileID: 2100000, guid: 53da5277cd5f84dbf94c42b3d6850d70, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -83,7 +83,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
