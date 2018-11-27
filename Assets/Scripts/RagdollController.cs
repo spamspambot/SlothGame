@@ -5,13 +5,16 @@ using UnityEngine;
 public class RagdollController : MonoBehaviour
 {
     public int ID;
+    public int powerID;
+    public bool hasPower;
+    public float fatigue;
     public GameObject sleepObject;
     public Transform head;
     public bool iGaveUp;
     public bool tryToBend;
     public bool sleeping;
-    public int sleepCounter;
-    public int sleepThreshold;
+    public float sleepCounter;
+    public float sleepThreshold;
     public Rigidbody leftArm;
     public Rigidbody rightArm;
     public Transform leftShoulder;
@@ -52,29 +55,45 @@ public class RagdollController : MonoBehaviour
         if (!sleeping)
         {
             if (sleepCounter >= sleepThreshold) StartCoroutine("FallAsleep");
+            else if (sleepCounter > 0) sleepCounter -= 0.1F;
             if (iGaveUp)
             {
-                if (Input.GetMouseButton(0)) { leftArm.AddForceAtPosition(transform.up * velocity, leftArm.transform.position, ForceMode.Force); }
-                else if (Input.GetMouseButton(1)) { rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position, ForceMode.Force); }
-                if (Input.GetMouseButtonDown(0)) { leftArm.AddForceAtPosition(-transform.forward * velocity / 10, leftArm.transform.position, ForceMode.Impulse); sleepCounter++; }
-                else if (Input.GetMouseButtonDown(1)) { rightArm.AddForceAtPosition(-transform.forward * velocity / 10, rightArm.transform.position, ForceMode.Impulse); sleepCounter++; }
+                if (Input.GetMouseButton(0) && leftCounter < armCounter) { leftArm.AddForceAtPosition(transform.up * velocity - transform.right * velocity / 20, leftArm.transform.position, ForceMode.Force); leftCounter++; }
+                else if (Input.GetMouseButton(1) && rightCounter < armCounter) { rightArm.AddForceAtPosition(transform.up * velocity + transform.right * velocity / 20, rightArm.transform.position, ForceMode.Force); rightCounter++; }
+                if (Input.GetMouseButtonDown(0)) { leftArm.AddForceAtPosition(-transform.forward * velocity / 10 - transform.right * velocity / 20, leftArm.transform.position, ForceMode.Impulse); sleepCounter += fatigue; }
+                else if (Input.GetMouseButtonDown(1)) { rightArm.AddForceAtPosition(-transform.forward * velocity / 10 + transform.right * velocity / 20, rightArm.transform.position, ForceMode.Impulse); sleepCounter += fatigue; }
+                if (Input.GetMouseButtonUp(0)) { leftCounter = 0; }
+                else if (Input.GetMouseButtonUp(1)) { rightCounter = 0; }
+                if (Input.GetButtonDown("Fire1") & hasPower) PowerUp(powerID);
                 if (ID == 1)
                 {
 
-                    if (Input.GetButton("LEFT_1") && leftCounter < armCounter) { leftArm.AddForceAtPosition(transform.up * velocity, leftArm.transform.position, ForceMode.Force); leftCounter++; }
-                    if (Input.GetButton("RIGHT_1") && rightCounter < armCounter) { rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position, ForceMode.Force); rightCounter++; }
-                    if (Input.GetButtonDown("LEFT_1")) { leftArm.AddForceAtPosition(-transform.forward * velocity / 10, leftArm.transform.position, ForceMode.Impulse); sleepCounter++; }
-                    if (Input.GetButtonDown("RIGHT_1")) { rightArm.AddForceAtPosition(-transform.forward * velocity / 10, rightArm.transform.position, ForceMode.Impulse); sleepCounter++; }
+                    if (Input.GetButton("LEFT_1") && leftCounter < armCounter)
+                    {
+                        leftArm.AddForceAtPosition(transform.up * velocity - transform.right * velocity / 4, leftArm.transform.position, ForceMode.Force);
+                        leftCounter++;
+                    }
+                    else if (Input.GetButton("RIGHT_1") && rightCounter < armCounter)
+                    {
+                        rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position + transform.right * velocity / 4, ForceMode.Force);
+                        rightCounter++;
+                    }
+                    if (Input.GetButtonDown("LEFT_1")) { leftArm.AddForceAtPosition(-transform.forward * velocity / 10 - transform.right * velocity / 20, leftArm.transform.position, ForceMode.Impulse); sleepCounter += fatigue; }
+                    else if (Input.GetButtonDown("RIGHT_1")) { rightArm.AddForceAtPosition(-transform.forward * velocity / 10 + transform.right * velocity / 20, rightArm.transform.position, ForceMode.Impulse); sleepCounter += fatigue; }
                     if (Input.GetButtonUp("LEFT_1")) { leftCounter = 0; }
-                    if (Input.GetButtonUp("RIGHT_1")) { rightCounter = 0; }
+                    else if (Input.GetButtonUp("RIGHT_1")) { rightCounter = 0; }
+                    if (Input.GetButtonDown("Fire1") & hasPower) PowerUp(powerID);
                 }
                 else if (ID == 2)
                 {
 
-                    if (Input.GetButton("LEFT_2")) { leftArm.AddForceAtPosition(transform.up * velocity, leftArm.transform.position, ForceMode.Force); }
-                    else if (Input.GetButton("RIGHT_2")) { rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position, ForceMode.Force); }
-                    if (Input.GetButtonDown("LEFT_2")) { leftArm.AddForceAtPosition(-transform.forward * velocity / 10, leftArm.transform.position, ForceMode.Impulse); sleepCounter++; }
-                    else if (Input.GetButtonDown("RIGHT_2")) { rightArm.AddForceAtPosition(-transform.forward * velocity / 10, rightArm.transform.position, ForceMode.Impulse); sleepCounter++; }
+                    if (Input.GetButton("LEFT_2") && leftCounter < armCounter) { leftArm.AddForceAtPosition(transform.up * velocity, leftArm.transform.position, ForceMode.Force); leftCounter++; }
+                    else if (Input.GetButton("RIGHT_2") && rightCounter < armCounter) { rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position, ForceMode.Force); rightCounter++; }
+                    if (Input.GetButtonDown("LEFT_2")) { leftArm.AddForceAtPosition(-transform.forward * velocity / 10 - transform.right * velocity / 20, leftArm.transform.position, ForceMode.Impulse); sleepCounter += fatigue; }
+                    else if (Input.GetButtonDown("RIGHT_2")) { rightArm.AddForceAtPosition(-transform.forward * velocity / 10 + transform.right * velocity / 20, rightArm.transform.position, ForceMode.Impulse); sleepCounter += fatigue; }
+                    if (Input.GetButtonUp("LEFT_2")) { leftCounter = 0; }
+                    else if (Input.GetButtonUp("RIGHT_2")) { rightCounter = 0; }
+                    if (Input.GetButtonDown("Fire2") & hasPower) PowerUp(powerID);
                 }
             }
             else
@@ -131,6 +150,25 @@ public class RagdollController : MonoBehaviour
             }
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Powerup"))
+        {
+            print("hasPower");
+            hasPower = true;
+            powerID = other.GetComponent<Powerup>().powerID;
+        }
+    }
+
+    void PowerUp(int i)
+    {
+        hasPower = false;
+        if (i == 0) print("Ball");
+        else if (i == 1) print("Happy Meal");
+
+    }
+
     IEnumerator FallAsleep()
     {
         Instantiate(sleepObject, head.position, Quaternion.Euler(270, 0, 0));
