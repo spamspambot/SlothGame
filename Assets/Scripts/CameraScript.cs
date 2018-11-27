@@ -12,7 +12,7 @@ public class CameraScript : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        startPos = cam.transform.position;
+        startPos = transform.position;
         if (targets.Count == 1) camTarget = targets[0].transform.position;
     }
 

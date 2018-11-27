@@ -70,12 +70,12 @@ public class RagdollController : MonoBehaviour
 
                     if (Input.GetButton("LEFT_1") && leftCounter < armCounter)
                     {
-                        leftArm.AddForceAtPosition(transform.up * velocity - transform.right * velocity / 4, leftArm.transform.position, ForceMode.Force);
+                        leftArm.AddForceAtPosition(transform.up * velocity, leftArm.transform.position, ForceMode.Force);
                         leftCounter++;
                     }
                     else if (Input.GetButton("RIGHT_1") && rightCounter < armCounter)
                     {
-                        rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position + transform.right * velocity / 4, ForceMode.Force);
+                        rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position , ForceMode.Force);
                         rightCounter++;
                     }
                     if (Input.GetButtonDown("LEFT_1")) { leftArm.AddForceAtPosition(-transform.forward * velocity / 10 - transform.right * velocity / 20, leftArm.transform.position, ForceMode.Impulse); sleepCounter += fatigue; }
