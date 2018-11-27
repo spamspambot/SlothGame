@@ -34,3 +34,8 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.prefab
+*.prefab
+Assets/Prefab/HappyMeal.prefab
+Assets/Prefab/Sloth_Ragdoll.prefab
+Assets/Prefab/UIManager.prefab

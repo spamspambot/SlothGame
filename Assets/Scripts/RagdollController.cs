@@ -31,6 +31,7 @@ public class RagdollController : MonoBehaviour
     SoftJointLimit leftLimit2;
     SoftJointLimit rightLimit;
     public float velocity = 500;
+    public float fVel = 175;
     public float limitChange = 1;
     public float x;
     public float y;
@@ -40,6 +41,11 @@ public class RagdollController : MonoBehaviour
     Vector3 shoulderR;
     Vector3 shoulderL;
     public AudioSource AS;
+    public bool happyMeal;
+    public float happyMealDur;
+    public GameObject ball;
+    public Transform ballSpawn;
+    float startVel;
     // Start is called before the first frame update
     void Start()
     {
@@ -47,6 +53,7 @@ public class RagdollController : MonoBehaviour
         leftLimit2 = leftElbow.highTwistLimit;
         shoulderR = rightShoulder.rotation.eulerAngles;
         shoulderL = leftShoulder.rotation.eulerAngles;
+        startVel = fVel;
     }
 
     // Update is called once per frame
@@ -54,12 +61,15 @@ public class RagdollController : MonoBehaviour
     {
         if (!sleeping)
         {
+            if (happyMeal) fVel = startVel * 1.5F;
+            else fVel = startVel;
+
             if (sleepCounter >= sleepThreshold) StartCoroutine("FallAsleep");
-            else if (sleepCounter > 0) sleepCounter -= 0.1F;
+            else if (sleepCounter > 0) sleepCounter -= 0.4F;
             if (iGaveUp)
             {
-                if (Input.GetMouseButton(0) && leftCounter < armCounter) { leftArm.AddForceAtPosition(transform.up * velocity - transform.right * velocity / 20, leftArm.transform.position, ForceMode.Force); leftCounter++; }
-                else if (Input.GetMouseButton(1) && rightCounter < armCounter) { rightArm.AddForceAtPosition(transform.up * velocity + transform.right * velocity / 20, rightArm.transform.position, ForceMode.Force); rightCounter++; }
+                if (Input.GetMouseButton(0) && leftCounter < armCounter) { leftArm.AddForceAtPosition(transform.up * fVel - transform.right * velocity / 20, leftArm.transform.position, ForceMode.Force); leftCounter++; }
+                else if (Input.GetMouseButton(1) && rightCounter < armCounter) { rightArm.AddForceAtPosition(transform.up * fVel + transform.right * velocity / 20, rightArm.transform.position, ForceMode.Force); rightCounter++; }
                 if (Input.GetMouseButtonDown(0)) { leftArm.AddForceAtPosition(-transform.forward * velocity / 10 - transform.right * velocity / 20, leftArm.transform.position, ForceMode.Impulse); sleepCounter += fatigue; }
                 else if (Input.GetMouseButtonDown(1)) { rightArm.AddForceAtPosition(-transform.forward * velocity / 10 + transform.right * velocity / 20, rightArm.transform.position, ForceMode.Impulse); sleepCounter += fatigue; }
                 if (Input.GetMouseButtonUp(0)) { leftCounter = 0; }
@@ -75,7 +85,7 @@ public class RagdollController : MonoBehaviour
                     }
                     else if (Input.GetButton("RIGHT_1") && rightCounter < armCounter)
                     {
-                        rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position , ForceMode.Force);
+                        rightArm.AddForceAtPosition(transform.up * velocity, rightArm.transform.position, ForceMode.Force);
                         rightCounter++;
                     }
                     if (Input.GetButtonDown("LEFT_1")) { leftArm.AddForceAtPosition(-transform.forward * velocity / 10 - transform.right * velocity / 20, leftArm.transform.position, ForceMode.Impulse); sleepCounter += fatigue; }
@@ -165,8 +175,18 @@ public class RagdollController : MonoBehaviour
     {
         hasPower = false;
         if (i == 0) print("Ball");
-        else if (i == 1) print("Happy Meal");
+        else if (i == 1) StartCoroutine("HappyMeal");
 
+    }
+
+    void Ball() {
+       GameObject tempBall = Instantiate(ball, ballSpawn.position, Quaternion.identity);
+    }
+
+    IEnumerator HappyMeal() {
+        happyMeal = true;
+        yield return new WaitForSeconds(happyMealDur);
+        happyMeal = false;
     }
 
     IEnumerator FallAsleep()
